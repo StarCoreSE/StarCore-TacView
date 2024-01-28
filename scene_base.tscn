@@ -1,10 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://dvpxcs6jbe1k8"]
+[gd_scene load_steps=9 format=3 uid="uid://dvpxcs6jbe1k8"]
 
 [ext_resource type="Script" path="res://SceneBase.cs" id="1_fb6uy"]
 [ext_resource type="Script" path="res://free_look_camera.gd" id="2_nobrj"]
-
-[sub_resource type="PrismMesh" id="PrismMesh_fww3f"]
-lightmap_size_hint = Vector2i(14, 21)
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_2msrx"]
 
@@ -15,15 +12,42 @@ sky_material = SubResource("ProceduralSkyMaterial_2msrx")
 background_mode = 2
 sky = SubResource("Sky_11n4s")
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pd4d1"]
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_w1qgq"]
+_surfaces = [{
+"aabb": AABB(-0.866025, -0.3055, -1, 1.73205, 0.611, 1.5),
+"format": 4097,
+"index_count": 24,
+"index_data": PackedByteArray(0, 0, 3, 0, 1, 0, 0, 0, 2, 0, 3, 0, 2, 0, 5, 0, 3, 0, 2, 0, 4, 0, 5, 0, 3, 0, 5, 0, 1, 0, 4, 0, 1, 0, 5, 0, 4, 0, 0, 0, 1, 0, 0, 0, 4, 0, 2, 0),
+"primitive": 3,
+"vertex_count": 6,
+"vertex_data": PackedByteArray(0, 0, 0, 0, 127, 106, 156, 190, 0, 0, 128, 191, 0, 0, 0, 0, 127, 106, 156, 62, 0, 0, 128, 191, 215, 179, 93, 63, 127, 106, 156, 190, 0, 0, 0, 63, 215, 179, 93, 63, 127, 106, 156, 62, 0, 0, 0, 63, 215, 179, 93, 191, 127, 106, 156, 190, 0, 0, 0, 63, 215, 179, 93, 191, 127, 106, 156, 62, 0, 0, 0, 63)
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_lep34"]
+resource_name = "troingale-de690e6c6f23c8df0d3fff32f152e9e5_Cylinder"
+_surfaces = [{
+"aabb": AABB(-0.866025, -0.3055, -1, 1.73205, 0.611, 1.5),
+"attribute_data": PackedByteArray(0, 0, 128, 179, 0, 0, 0, 63, 0, 0, 64, 63, 92, 143, 2, 63, 0, 0, 128, 63, 0, 0, 0, 63, 0, 0, 128, 179, 0, 0, 0, 0, 0, 0, 128, 62, 92, 143, 2, 63, 0, 0, 128, 63, 0, 0, 0, 0, 103, 53, 117, 63, 82, 184, 94, 63, 170, 170, 42, 63, 0, 0, 0, 63, 170, 170, 42, 63, 0, 0, 0, 63, 170, 170, 42, 63, 0, 0, 0, 0, 206, 106, 234, 62, 82, 184, 94, 63, 170, 170, 42, 63, 0, 0, 0, 0, 169, 170, 170, 62, 0, 0, 0, 63, 153, 202, 10, 63, 82, 184, 94, 63, 169, 170, 170, 62, 0, 0, 0, 63, 169, 170, 170, 62, 0, 0, 0, 0, 169, 170, 170, 62, 0, 0, 0, 0, 148, 169, 44, 61, 82, 184, 94, 63),
+"format": 4119,
+"index_count": 24,
+"index_data": PackedByteArray(2, 0, 11, 0, 5, 0, 2, 0, 8, 0, 11, 0, 7, 0, 16, 0, 9, 0, 7, 0, 14, 0, 16, 0, 10, 0, 17, 0, 4, 0, 12, 0, 3, 0, 15, 0, 12, 0, 0, 0, 3, 0, 1, 0, 13, 0, 6, 0),
+"material": SubResource("StandardMaterial3D_pd4d1"),
+"primitive": 3,
+"vertex_count": 18,
+"vertex_data": PackedByteArray(0, 0, 0, 0, 127, 106, 156, 190, 0, 0, 128, 191, 0, 0, 217, 174, 37, 81, 255, 191, 0, 0, 0, 0, 127, 106, 156, 190, 0, 0, 128, 191, 255, 127, 0, 0, 255, 255, 255, 191, 0, 0, 0, 0, 127, 106, 156, 190, 0, 0, 128, 191, 255, 255, 217, 174, 0, 0, 146, 232, 0, 0, 0, 0, 127, 106, 156, 62, 0, 0, 128, 191, 0, 0, 217, 174, 37, 81, 255, 191, 0, 0, 0, 0, 127, 106, 156, 62, 0, 0, 128, 191, 255, 127, 255, 255, 255, 255, 255, 191, 0, 0, 0, 0, 127, 106, 156, 62, 0, 0, 128, 191, 255, 255, 217, 174, 0, 0, 146, 232, 215, 179, 93, 63, 127, 106, 156, 190, 0, 0, 0, 63, 255, 127, 0, 0, 255, 255, 255, 191, 215, 179, 93, 63, 127, 106, 156, 190, 0, 0, 0, 63, 255, 127, 255, 127, 255, 255, 255, 191, 215, 179, 93, 63, 127, 106, 156, 190, 0, 0, 0, 63, 255, 255, 217, 174, 0, 0, 146, 232, 215, 179, 93, 63, 127, 106, 156, 62, 0, 0, 0, 63, 255, 127, 255, 127, 255, 255, 255, 191, 215, 179, 93, 63, 127, 106, 156, 62, 0, 0, 0, 63, 255, 127, 255, 255, 255, 255, 255, 191, 215, 179, 93, 63, 127, 106, 156, 62, 0, 0, 0, 63, 255, 255, 217, 174, 0, 0, 146, 232, 215, 179, 93, 191, 127, 106, 156, 190, 0, 0, 0, 63, 0, 0, 217, 174, 37, 81, 255, 191, 215, 179, 93, 191, 127, 106, 156, 190, 0, 0, 0, 63, 255, 127, 0, 0, 255, 255, 255, 191, 215, 179, 93, 191, 127, 106, 156, 190, 0, 0, 0, 63, 255, 127, 255, 127, 255, 255, 255, 191, 215, 179, 93, 191, 127, 106, 156, 62, 0, 0, 0, 63, 0, 0, 217, 174, 37, 81, 255, 191, 215, 179, 93, 191, 127, 106, 156, 62, 0, 0, 0, 63, 255, 127, 255, 127, 255, 255, 255, 191, 215, 179, 93, 191, 127, 106, 156, 62, 0, 0, 0, 63, 255, 127, 255, 255, 255, 255, 255, 191)
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_w1qgq")
+
 [node name="SceneBase" type="Node3D"]
 script = ExtResource("1_fb6uy")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-mesh = SubResource("PrismMesh_fww3f")
-skeleton = NodePath("")
-
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(-1, 2.62583e-21, -8.74228e-08, 1.69407e-21, 1, 1.06581e-14, 8.74228e-08, 1.06581e-14, -1, 0, 1.6687, -7.70696)
+visible = false
 script = ExtResource("2_nobrj")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
@@ -31,3 +55,8 @@ environment = SubResource("Environment_hm6sd")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.996525, -0.0545514, 0.0629392, -0.0185652, 0.882135, 0.47063, -0.0811944, 0.467827, -0.880083, 0, 0, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.576, 0, 0, 0, 0.576, 0, 0, 0, 1, 0, 0, 0)
+mesh = SubResource("ArrayMesh_lep34")
+skeleton = NodePath("")
