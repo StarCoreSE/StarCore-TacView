@@ -24,8 +24,8 @@ public partial class SceneBase : Node3D
             var gridData = new GridMovementData(fullPath);
             movementDatas.Add(gridData);
 
-            // Create a new MeshInstance3D for each gridData
-            var newMeshInstance = (MeshInstance3D)templateMeshInstance.Duplicate(); // Duplicate the template
+            // Create a new MeshInstance3D for each gridData and clone its children
+            var newMeshInstance = CloneMeshInstanceWithChildren(templateMeshInstance);
             AddChild(newMeshInstance); // Add it as a child of the current node
 
             // Set the scale based on grid data
@@ -63,6 +63,28 @@ public partial class SceneBase : Node3D
         {
             GD.Print("No movement data files found or loaded.");
         }
+    }
+
+    // Custom function to clone a MeshInstance3D and its children
+    private MeshInstance3D CloneMeshInstanceWithChildren(MeshInstance3D original)
+    {
+        var clone = (MeshInstance3D)original.Duplicate();
+
+        foreach (Node child in original.GetChildren())
+        {
+            if (child is MeshInstance3D meshChild)
+            {
+                var childClone = CloneMeshInstanceWithChildren(meshChild);
+                clone.AddChild(childClone);
+            }
+            else
+            {
+                var childClone = child.Duplicate();
+                clone.AddChild(childClone);
+            }
+        }
+
+        return clone;
     }
 
 

@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://dvpxcs6jbe1k8"]
+[gd_scene load_steps=10 format=3 uid="uid://dvpxcs6jbe1k8"]
 
 [ext_resource type="Script" path="res://SceneBase.cs" id="1_fb6uy"]
 [ext_resource type="Script" path="res://free_look_camera.gd" id="2_nobrj"]
+[ext_resource type="PackedScene" uid="uid://b0dkbjturh41e" path="res://trail.tscn" id="3_al7g7"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_2msrx"]
 
@@ -60,3 +61,5 @@ transform = Transform3D(-0.996525, -0.0545514, 0.0629392, -0.0185652, 0.882135, 
 transform = Transform3D(0.576, 0, 0, 0, 0.576, 0, 0, 0, 1, 0, 0, 0)
 mesh = SubResource("ArrayMesh_lep34")
 skeleton = NodePath("")
+
+[node name="Trail" parent="MeshInstance3D" instance=ExtResource("3_al7g7")]

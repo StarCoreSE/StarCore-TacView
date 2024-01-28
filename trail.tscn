@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://b0dkbjturh41e"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_st2sf"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_xftcj"]
+gravity = Vector3(0, 0, 0)
+scale_min = 5.0
+scale_max = 5.0
+
+[sub_resource type="SphereMesh" id="SphereMesh_4y4pc"]
+
+[node name="Trail" type="RigidBody3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.33, 0, 0, 0, 0.33, 0, 0, 0, 0.33, 0, 0, 0)
+shape = SubResource("SphereShape3D_st2sf")
+disabled = true
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0)
+amount = 100
+lifetime = 10.0
+process_material = SubResource("ParticleProcessMaterial_xftcj")
+draw_pass_1 = SubResource("SphereMesh_4y4pc")

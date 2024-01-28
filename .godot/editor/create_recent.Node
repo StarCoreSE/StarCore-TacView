@@ -1,7 +1,10 @@
+GPUParticles3D
+CollisionShape3D
+RigidBody3D
+CPUParticles3D
+CPUParticles2D
 DirectionalLight3D
 WorldEnvironment
 Camera3D
-CollisionShape3D
 MeshInstance3D
-RigidBody3D
 Node
