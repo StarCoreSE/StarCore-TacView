@@ -1,0 +1,17 @@
+C:\USERS\JNICK\ONEDRIVE\DOCUMENTS\STARCORE TACVIEW\.godot\mono\temp\bin\Debug\StarCore TacView.deps.json
+C:\USERS\JNICK\ONEDRIVE\DOCUMENTS\STARCORE TACVIEW\.godot\mono\temp\bin\Debug\StarCore TacView.runtimeconfig.json
+C:\USERS\JNICK\ONEDRIVE\DOCUMENTS\STARCORE TACVIEW\.godot\mono\temp\bin\Debug\StarCore TacView.dll
+C:\USERS\JNICK\ONEDRIVE\DOCUMENTS\STARCORE TACVIEW\.godot\mono\temp\bin\Debug\StarCore TacView.pdb
+C:\USERS\JNICK\ONEDRIVE\DOCUMENTS\STARCORE TACVIEW\.godot\mono\temp\bin\Debug\GodotSharp.dll
+C:\USERS\JNICK\ONEDRIVE\DOCUMENTS\STARCORE TACVIEW\.godot\mono\temp\bin\Debug\GodotSharpEditor.dll
+C:\USERS\JNICK\ONEDRIVE\DOCUMENTS\STARCORE TACVIEW\.godot\mono\temp\obj\Debug\StarCore TacView.csproj.AssemblyReference.cache
+C:\USERS\JNICK\ONEDRIVE\DOCUMENTS\STARCORE TACVIEW\.godot\mono\temp\obj\Debug\StarCore TacView.GeneratedMSBuildEditorConfig.editorconfig
+C:\USERS\JNICK\ONEDRIVE\DOCUMENTS\STARCORE TACVIEW\.godot\mono\temp\obj\Debug\StarCore TacView.AssemblyInfoInputs.cache
+C:\USERS\JNICK\ONEDRIVE\DOCUMENTS\STARCORE TACVIEW\.godot\mono\temp\obj\Debug\StarCore TacView.AssemblyInfo.cs
+C:\USERS\JNICK\ONEDRIVE\DOCUMENTS\STARCORE TACVIEW\.godot\mono\temp\obj\Debug\StarCore TacView.csproj.CoreCompileInputs.cache
+C:\USERS\JNICK\ONEDRIVE\DOCUMENTS\STARCORE TACVIEW\.godot\mono\temp\obj\Debug\StarCore TacView.csproj.CopyComplete
+C:\USERS\JNICK\ONEDRIVE\DOCUMENTS\STARCORE TACVIEW\.godot\mono\temp\obj\Debug\StarCore TacView.dll
+C:\USERS\JNICK\ONEDRIVE\DOCUMENTS\STARCORE TACVIEW\.godot\mono\temp\obj\Debug\refint\StarCore TacView.dll
+C:\USERS\JNICK\ONEDRIVE\DOCUMENTS\STARCORE TACVIEW\.godot\mono\temp\obj\Debug\StarCore TacView.pdb
+C:\USERS\JNICK\ONEDRIVE\DOCUMENTS\STARCORE TACVIEW\.godot\mono\temp\obj\Debug\StarCore TacView.genruntimeconfig.cache
+C:\USERS\JNICK\ONEDRIVE\DOCUMENTS\STARCORE TACVIEW\.godot\mono\temp\obj\Debug\ref\StarCore TacView.dll

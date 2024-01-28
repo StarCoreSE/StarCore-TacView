@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "sU7BslpC+alaNl+TzFig8Rb6rlWELqAomRo8dfOd2Sg6jHoO/7RdVzK9LNHrdmTBrRTVfsRW7DMXO9g/C2Jr+A==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\jnick\\OneDrive\\Documents\\StarCore TacView\\StarCore TacView.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\jnick\\.nuget\\packages\\godot.sourcegenerators\\4.1.2\\godot.sourcegenerators.4.1.2.nupkg.sha512",
+    "C:\\Users\\jnick\\.nuget\\packages\\godotsharp\\4.1.2\\godotsharp.4.1.2.nupkg.sha512",
+    "C:\\Users\\jnick\\.nuget\\packages\\godotsharpeditor\\4.1.2\\godotsharpeditor.4.1.2.nupkg.sha512"
+  ],
+  "logs": []
+}

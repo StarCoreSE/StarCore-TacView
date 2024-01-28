@@ -1,0 +1,31 @@
+[gd_scene load_steps=6 format=3 uid="uid://dvpxcs6jbe1k8"]
+
+[ext_resource type="Script" path="res://SceneBase.cs" id="1_fb6uy"]
+
+[sub_resource type="PrismMesh" id="PrismMesh_fww3f"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_2msrx"]
+
+[sub_resource type="Sky" id="Sky_11n4s"]
+sky_material = SubResource("ProceduralSkyMaterial_2msrx")
+
+[sub_resource type="Environment" id="Environment_hm6sd"]
+background_mode = 2
+sky = SubResource("Sky_11n4s")
+
+[node name="SceneBase" type="Node3D"]
+script = ExtResource("1_fb6uy")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 16.7405)
+mesh = SubResource("PrismMesh_fww3f")
+skeleton = NodePath("")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_hm6sd")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.996525, -0.0545514, 0.0629392, -0.0185652, 0.882135, 0.47063, -0.0811944, 0.467827, -0.880083, 0, 0, 0)
