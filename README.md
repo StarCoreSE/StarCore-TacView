@@ -2,4 +2,4 @@
 
 output grid data and read it
 
-https://steamcommunity.com/sharedfiles/filedetails/?id=2975063364&searchtext=SCCoordinateViewer
+https://steamcommunity.com/sharedfiles/filedetails/?id=2975063364
