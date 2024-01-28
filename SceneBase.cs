@@ -32,8 +32,10 @@ public partial class SceneBase : Node3D
             newMeshInstance.Scale = ((Vector3)gridData.GridBox) * gridData.GridSize;
 
             meshInstances.Add(newMeshInstance); // Add the new mesh instance to the list
-            templateMeshInstance.QueueFree(); // Remove the template from the scene
         }
+
+        // Free the templateMeshInstance after creating all instances
+        templateMeshInstance.QueueFree();
 
         // Set the tick to the earliest across all files
         if (movementDatas.Any())
@@ -45,6 +47,7 @@ public partial class SceneBase : Node3D
             GD.Print("No movement data files found or loaded.");
         }
     }
+
 
 
     // Called every frame. 'delta' is the elapsed time since the previous frame.
