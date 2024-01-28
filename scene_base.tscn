@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://dvpxcs6jbe1k8"]
+[gd_scene load_steps=7 format=3 uid="uid://dvpxcs6jbe1k8"]
 
 [ext_resource type="Script" path="res://SceneBase.cs" id="1_fb6uy"]
+[ext_resource type="Script" path="res://free_look_camera.gd" id="2_nobrj"]
 
 [sub_resource type="PrismMesh" id="PrismMesh_fww3f"]
 
@@ -22,7 +23,8 @@ mesh = SubResource("PrismMesh_fww3f")
 skeleton = NodePath("")
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(-1, 2.5411e-21, -8.74228e-08, -8.74228e-08, -4.37114e-08, 1, -3.82137e-15, 1, 4.37114e-08, 0, 143.972, -0.321154)
+transform = Transform3D(-1, 2.62583e-21, -8.74228e-08, 1.69407e-21, 1, 1.06581e-14, 8.74228e-08, 1.06581e-14, -1, 0, 1.6687, -7.70696)
+script = ExtResource("2_nobrj")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_hm6sd")
