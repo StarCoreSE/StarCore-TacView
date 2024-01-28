@@ -47,7 +47,7 @@ script = ExtResource("1_fb6uy")
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(-1, 2.62583e-21, -8.74228e-08, 1.69407e-21, 1, 1.06581e-14, 8.74228e-08, 1.06581e-14, -1, 0, 1.6687, -7.70696)
-visible = false
+far = 20000.0
 script = ExtResource("2_nobrj")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
