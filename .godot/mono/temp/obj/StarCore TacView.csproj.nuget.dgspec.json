@@ -1,24 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\jnick\\OneDrive\\Documents\\StarCore TacView\\StarCore TacView.csproj": {}
+    "Y:\\Modding Assets\\Misc Git Repos\\StarCore-TacView\\StarCore TacView.csproj": {}
   },
   "projects": {
-    "C:\\Users\\jnick\\OneDrive\\Documents\\StarCore TacView\\StarCore TacView.csproj": {
+    "Y:\\Modding Assets\\Misc Git Repos\\StarCore-TacView\\StarCore TacView.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\jnick\\OneDrive\\Documents\\StarCore TacView\\StarCore TacView.csproj",
+        "projectUniqueName": "Y:\\Modding Assets\\Misc Git Repos\\StarCore-TacView\\StarCore TacView.csproj",
         "projectName": "StarCore TacView",
-        "projectPath": "C:\\Users\\jnick\\OneDrive\\Documents\\StarCore TacView\\StarCore TacView.csproj",
-        "packagesPath": "C:\\Users\\jnick\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\jnick\\OneDrive\\Documents\\StarCore TacView\\.godot\\mono\\temp\\obj\\",
+        "projectPath": "Y:\\Modding Assets\\Misc Git Repos\\StarCore-TacView\\StarCore TacView.csproj",
+        "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
+        "outputPath": "Y:\\Modding Assets\\Misc Git Repos\\StarCore-TacView\\.godot\\mono\\temp\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Users\\jnick\\AppData\\Roaming\\Godot\\mono\\GodotNuGetFallbackFolder"
-        ],
         "configFilePaths": [
-          "C:\\Users\\jnick\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Users\\jnick\\AppData\\Roaming\\NuGet\\config\\Godot.Offline.Config",
+          "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -46,15 +42,15 @@
           "dependencies": {
             "Godot.SourceGenerators": {
               "target": "Package",
-              "version": "[4.1.2, )"
+              "version": "[4.1.1, )"
             },
             "GodotSharp": {
               "target": "Package",
-              "version": "[4.1.2, )"
+              "version": "[4.1.1, )"
             },
             "GodotSharpEditor": {
               "target": "Package",
-              "version": "[4.1.2, )"
+              "version": "[4.1.1, )"
             }
           },
           "imports": [
@@ -73,7 +69,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.201\\RuntimeIdentifierGraph.json"
         }
       }
     }

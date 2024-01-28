@@ -15,3 +15,20 @@ C:\USERS\JNICK\ONEDRIVE\DOCUMENTS\STARCORE TACVIEW\.godot\mono\temp\obj\Debug\re
 C:\USERS\JNICK\ONEDRIVE\DOCUMENTS\STARCORE TACVIEW\.godot\mono\temp\obj\Debug\StarCore TacView.pdb
 C:\USERS\JNICK\ONEDRIVE\DOCUMENTS\STARCORE TACVIEW\.godot\mono\temp\obj\Debug\StarCore TacView.genruntimeconfig.cache
 C:\USERS\JNICK\ONEDRIVE\DOCUMENTS\STARCORE TACVIEW\.godot\mono\temp\obj\Debug\ref\StarCore TacView.dll
+Y:\Modding Assets\Misc Git Repos\StarCore-TacView\.godot\mono\temp\bin\Debug\StarCore TacView.deps.json
+Y:\Modding Assets\Misc Git Repos\StarCore-TacView\.godot\mono\temp\bin\Debug\StarCore TacView.runtimeconfig.json
+Y:\Modding Assets\Misc Git Repos\StarCore-TacView\.godot\mono\temp\bin\Debug\StarCore TacView.dll
+Y:\Modding Assets\Misc Git Repos\StarCore-TacView\.godot\mono\temp\bin\Debug\StarCore TacView.pdb
+Y:\Modding Assets\Misc Git Repos\StarCore-TacView\.godot\mono\temp\bin\Debug\GodotSharp.dll
+Y:\Modding Assets\Misc Git Repos\StarCore-TacView\.godot\mono\temp\bin\Debug\GodotSharpEditor.dll
+Y:\Modding Assets\Misc Git Repos\StarCore-TacView\.godot\mono\temp\obj\Debug\StarCore TacView.csproj.AssemblyReference.cache
+Y:\Modding Assets\Misc Git Repos\StarCore-TacView\.godot\mono\temp\obj\Debug\StarCore TacView.GeneratedMSBuildEditorConfig.editorconfig
+Y:\Modding Assets\Misc Git Repos\StarCore-TacView\.godot\mono\temp\obj\Debug\StarCore TacView.AssemblyInfoInputs.cache
+Y:\Modding Assets\Misc Git Repos\StarCore-TacView\.godot\mono\temp\obj\Debug\StarCore TacView.AssemblyInfo.cs
+Y:\Modding Assets\Misc Git Repos\StarCore-TacView\.godot\mono\temp\obj\Debug\StarCore TacView.csproj.CoreCompileInputs.cache
+Y:\Modding Assets\Misc Git Repos\StarCore-TacView\.godot\mono\temp\obj\Debug\StarCore TacView.csproj.CopyComplete
+Y:\Modding Assets\Misc Git Repos\StarCore-TacView\.godot\mono\temp\obj\Debug\StarCore TacView.dll
+Y:\Modding Assets\Misc Git Repos\StarCore-TacView\.godot\mono\temp\obj\Debug\refint\StarCore TacView.dll
+Y:\Modding Assets\Misc Git Repos\StarCore-TacView\.godot\mono\temp\obj\Debug\StarCore TacView.pdb
+Y:\Modding Assets\Misc Git Repos\StarCore-TacView\.godot\mono\temp\obj\Debug\StarCore TacView.genruntimeconfig.cache
+Y:\Modding Assets\Misc Git Repos\StarCore-TacView\.godot\mono\temp\obj\Debug\ref\StarCore TacView.dll
