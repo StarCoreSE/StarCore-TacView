@@ -31,6 +31,23 @@ public partial class SceneBase : Node3D
             // Set the scale based on grid data
             newMeshInstance.Scale = ((Vector3)gridData.GridBox) * gridData.GridSize;
 
+            // Create a new ShaderMaterial and set its albedo color based on your conditions
+            var material = new ShaderMaterial();
+
+            // Check if the team name contains "RED" and set the color accordingly
+            if (gridData.Faction.Contains("RED"))
+            {
+                material.SetShaderParameter("albedo_color", new Color(1.0f, 0.0f, 0.0f)); // Red color
+            }
+            // Check if the team name contains "BLUE" and set the color accordingly
+            else if (gridData.Faction.Contains("BLU"))
+            {
+                material.SetShaderParameter("albedo_color", new Color(0.0f, 0.0f, 1.0f)); // Blue color
+            }
+
+            // Assign the ShaderMaterial to the new MeshInstance
+            newMeshInstance.MaterialOverride = material;
+
             meshInstances.Add(newMeshInstance); // Add the new mesh instance to the list
         }
 
@@ -50,12 +67,14 @@ public partial class SceneBase : Node3D
 
 
 
+
+
     // Called every frame. 'delta' is the elapsed time since the previous frame.
     public override void _Process(double delta)
     {
         if (Input.IsKeyPressed(Key.R))
         {
-            tick = movementDatas.Min(data => data.GetFirstTickValue()); // Reset to earliest tick across all files
+            tick = movementDatas.Min(data => data.GetFirstTickValue()); // Reset to the earliest tick across all files
             foreach (var data in movementDatas)
                 data.Reset();
         }
@@ -64,23 +83,32 @@ public partial class SceneBase : Node3D
 
         DisplayServer.WindowSetTitle(Math.Round(tick / 60) + "s | " + Engine.GetFramesPerSecond() + "fps");
 
-        // Iterate through all mesh instances and update their positions and rotations
-        for (int i = 0; i < movementDatas.Count; i++)
+        // Check if the sizes of movementDatas and meshInstances are the same
+        if (movementDatas.Count == meshInstances.Count)
         {
-            var gridData = movementDatas[i];
-            var meshInstance = meshInstances[i];
+            // Iterate through all mesh instances and update their positions and rotations
+            for (int i = 0; i < movementDatas.Count; i++)
+            {
+                var gridData = movementDatas[i];
+                var meshInstance = meshInstances[i];
 
-            if (meshInstance != null) // Check if the mesh instance exists
-            {
-                meshInstance.GlobalPosition = gridData.GetPosition(tick);
-                meshInstance.Quaternion = gridData.GetRotation(tick);
+                if (meshInstance != null) // Check if the mesh instance exists
+                {
+                    meshInstance.GlobalPosition = gridData.GetPosition(tick);
+                    meshInstance.Quaternion = gridData.GetRotation(tick);
+                }
+                else
+                {
+                    GD.Print("MeshInstance is null or not properly initialized.");
+                }
             }
-            else
-            {
-                GD.Print("MeshInstance is null or not properly initialized.");
-            }
+        }
+        else
+        {
+            GD.Print("Size mismatch between movementDatas and meshInstances.");
         }
 
         tick++;
     }
+
 }
