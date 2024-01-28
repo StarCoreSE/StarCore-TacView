@@ -2,30 +2,29 @@ using Godot;
 using StarCoreTacView;
 using System;
 using System.Collections.Generic;
+using System.Linq; // Include this for LINQ extension methods like Min
 
 public partial class SceneBase : Node3D
 {
-    const float StartTicks = 2000;
 
     const string path = "C:\\Users\\User\\AppData\\Roaming\\SpaceEngineers\\Saves\\76561198071098415\\SCTacView\\Storage\\SCCoordinateOutput_ScCoordWriter\\";
     List<GridMovementData> movementDatas = new List<GridMovementData>();
     MeshInstance3D meshInstance;
-    float tick = StartTicks;
+    float tick;
 
-    // Called when the node enters the scene tree for the first time.
     public override void _Ready()
     {
         foreach (var file in DirAccess.GetFilesAt(path))
         {
             string fullPath = System.IO.Path.Combine(path, file);
-            movementDatas.Add(new GridMovementData(fullPath));
+            var gridData = new GridMovementData(fullPath);
+            movementDatas.Add(gridData);
         }
 
-        // Debug statement to confirm the list is populated
-        GD.Print("Number of movement data loaded: " + movementDatas.Count);
-
+        // Find the earliest tick across all files
         if (movementDatas.Count > 0)
         {
+            tick = movementDatas.Min(data => data.GetFirstTickValue()); // Ensure System.Linq is used
             meshInstance = GetChild<MeshInstance3D>(0);
             meshInstance.Scale = ((Vector3)movementDatas[0].GridBox) * movementDatas[0].GridSize;
         }
@@ -40,7 +39,7 @@ public partial class SceneBase : Node3D
     {
         if (Input.IsKeyPressed(Key.R))
         {
-            tick = StartTicks;
+            tick = movementDatas.Min(data => data.GetFirstTickValue()); // Reset to earliest tick across all files
             foreach (var data in movementDatas)
                 data.Reset();
         }

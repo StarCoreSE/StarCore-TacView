@@ -63,6 +63,25 @@ namespace StarCoreTacView
             gridOrientation = nextGridOrientation;
         }
 
+        public int GetFirstTickValue()
+        {
+            if (allCells.Length > 2)
+            {
+                // Assuming the first numerical value in each row is the tick value
+                // and it's stored at index 0.
+                var tickValues = allCells.Skip(2) // Skip header rows
+                    .Select(row => int.TryParse(row[0], out var tick) ? tick : (int?)null)
+                    .Where(tick => tick.HasValue)
+                    .Select(tick => tick.Value);
+
+                if (tickValues.Any())
+                {
+                    return tickValues.Min();
+                }
+            }
+            return int.MaxValue; // Return a large value if no valid tick found
+        }
+
         public Vector3 GetPosition(float tick)
         {
             if (IsDone)
