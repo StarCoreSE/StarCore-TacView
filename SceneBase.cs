@@ -11,6 +11,7 @@ public partial class SceneBase : Node3D
     List<GridMovementData> movementDatas = new List<GridMovementData>();
     MeshInstance3D meshInstance;
     float tick = StartTicks;
+    float elapsedTime = 0f; // Cumulative elapsed time
 
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
@@ -41,11 +42,17 @@ public partial class SceneBase : Node3D
         if (Input.IsKeyPressed(Key.R))
         {
             tick = StartTicks;
+            elapsedTime = 0f; // Reset the elapsed time
             foreach (var data in movementDatas)
                 data.Reset();
         }
 
-        tick += (float)delta;
+        elapsedTime += (float)delta;
+        if (elapsedTime >= 1.0f) // Check if one second has passed
+        {
+            tick += 60;  // Increment tick by 60 per second
+            elapsedTime -= 1.0f; // Reset the elapsed time accumulator
+        }
 
         DisplayServer.WindowSetTitle(Math.Round(tick / 60) + "s | " + Engine.GetFramesPerSecond() + "fps");
 
@@ -58,7 +65,5 @@ public partial class SceneBase : Node3D
         {
             GD.Print("No data available to update position and rotation.");
         }
-
-        tick++;
     }
 }
