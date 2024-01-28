@@ -4,6 +4,7 @@
 [ext_resource type="Script" path="res://free_look_camera.gd" id="2_nobrj"]
 
 [sub_resource type="PrismMesh" id="PrismMesh_fww3f"]
+lightmap_size_hint = Vector2i(14, 21)
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_2msrx"]
 
