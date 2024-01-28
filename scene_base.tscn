@@ -18,7 +18,6 @@ sky = SubResource("Sky_11n4s")
 script = ExtResource("1_fb6uy")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 16.7405)
 mesh = SubResource("PrismMesh_fww3f")
 skeleton = NodePath("")
 

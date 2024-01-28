@@ -1,6 +1,8 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1706430257
-GridMovementData.cs::CSharpScript::-1::1706430194::0::1::::<><>::
+::res://::1706433148
+free_look_camera.gd::GDScript::-1::1706430724::0::1::::<>Camera3D<>::
+GridMovementData.cs::CSharpScript::-1::1706431868::0::1::::<><>::
 icon.svg::CompressedTexture2D::8282793192807116166::1706310979::1706310985::1::::<><>::
-SceneBase.cs::CSharpScript::-1::1706430211::0::1::::<><>::
-scene_base.tscn::PackedScene::8665594489930000621::1706430211::0::1::::<><>::res://SceneBase.cs
+README.md::TextFile::-1::1706430724::0::1::::<><>::
+SceneBase.cs::CSharpScript::-1::1706432176::0::1::::<><>::
+scene_base.tscn::PackedScene::8665594489930000621::1706432354::0::1::::<><>::res://SceneBase.cs<>res://free_look_camera.gd
