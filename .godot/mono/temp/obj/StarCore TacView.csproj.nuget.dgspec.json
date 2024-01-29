@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "Y:\\Modding Assets\\Misc Git Repos\\StarCore-TacView\\StarCore TacView.csproj": {}
+    "Y:\\MODDING ASSETS\\MISC GIT REPOS\\STARCORE-TACVIEW\\StarCore TacView.csproj": {}
   },
   "projects": {
-    "Y:\\Modding Assets\\Misc Git Repos\\StarCore-TacView\\StarCore TacView.csproj": {
+    "Y:\\MODDING ASSETS\\MISC GIT REPOS\\STARCORE-TACVIEW\\StarCore TacView.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "Y:\\Modding Assets\\Misc Git Repos\\StarCore-TacView\\StarCore TacView.csproj",
+        "projectUniqueName": "Y:\\MODDING ASSETS\\MISC GIT REPOS\\STARCORE-TACVIEW\\StarCore TacView.csproj",
         "projectName": "StarCore TacView",
-        "projectPath": "Y:\\Modding Assets\\Misc Git Repos\\StarCore-TacView\\StarCore TacView.csproj",
+        "projectPath": "Y:\\MODDING ASSETS\\MISC GIT REPOS\\STARCORE-TACVIEW\\StarCore TacView.csproj",
         "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-        "outputPath": "Y:\\Modding Assets\\Misc Git Repos\\StarCore-TacView\\.godot\\mono\\temp\\obj\\",
+        "outputPath": "Y:\\MODDING ASSETS\\MISC GIT REPOS\\STARCORE-TACVIEW\\.godot\\mono\\temp\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "Aq/RiPeA0TQWoHcpDs0PS6Ov9W6OniGbcg+4VVrA4iL6YBqhZozBfPIrwo9HaUVwaHSv+rxxbezf2kTpPD7nrg==",
+  "dgSpecHash": "pgPJNm88SVYTljj30xMlnK/4PkV81PkWfHP7cI7uu5lDoH9shBxe/YkPKVyo+wW6glJ+Isu8jUdLuKeEuW/W2Q==",
   "success": true,
-  "projectFilePath": "Y:\\Modding Assets\\Misc Git Repos\\StarCore-TacView\\StarCore TacView.csproj",
+  "projectFilePath": "Y:\\MODDING ASSETS\\MISC GIT REPOS\\STARCORE-TACVIEW\\StarCore TacView.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\User\\.nuget\\packages\\godot.sourcegenerators\\4.1.1\\godot.sourcegenerators.4.1.1.nupkg.sha512",
     "C:\\Users\\User\\.nuget\\packages\\godotsharp\\4.1.1\\godotsharp.4.1.1.nupkg.sha512",
