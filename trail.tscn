@@ -7,7 +7,8 @@ gravity = Vector3(0, 0, 0)
 scale_min = 5.0
 scale_max = 5.0
 
-[sub_resource type="SphereMesh" id="SphereMesh_4y4pc"]
+[sub_resource type="BoxMesh" id="BoxMesh_l4gtt"]
+size = Vector3(1, 1, 5)
 
 [node name="Trail" type="RigidBody3D"]
 
@@ -21,4 +22,4 @@ transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 
 amount = 100
 lifetime = 10.0
 process_material = SubResource("ParticleProcessMaterial_xftcj")
-draw_pass_1 = SubResource("SphereMesh_4y4pc")
+draw_pass_1 = SubResource("BoxMesh_l4gtt")

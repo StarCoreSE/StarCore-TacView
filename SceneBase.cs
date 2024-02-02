@@ -13,7 +13,7 @@ public partial class SceneBase : Node3D
     MeshInstance3D templateMeshInstance;
     List<MeshInstance3D> meshInstances = new List<MeshInstance3D>();
     float tick;
-    private float simulationSpeed = 1.0f; // Default simulation speed
+    private float simulationSpeed = 60f; // Default simulation speed
 
     public override void _Ready()
     {
