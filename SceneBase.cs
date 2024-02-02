@@ -13,9 +13,18 @@ public partial class SceneBase : Node3D
     MeshInstance3D templateMeshInstance;
     List<MeshInstance3D> meshInstances = new List<MeshInstance3D>();
     float tick;
+    private float simulationSpeed = 1.0f; // Default simulation speed
 
     public override void _Ready()
     {
+
+        // Connect the HSliderSim's value_changed signal
+        var hSliderSim = GetNode<HSlider>("HSliderSim"); // Adjust the path to your HSliderSim node if necessary
+        var callable = new Callable(this, nameof(OnSliderValueChanged));
+        hSliderSim.Connect("value_changed", callable);
+
+
+
         templateMeshInstance = GetNode<MeshInstance3D>("MeshInstance3D"); // Replace with the actual path
 
         foreach (var file in DirAccess.GetFilesAt(path))
@@ -65,6 +74,11 @@ public partial class SceneBase : Node3D
         }
     }
 
+    private void OnSliderValueChanged(float value)
+    {
+        simulationSpeed = value;
+    }
+
     // Custom function to clone a MeshInstance3D and its children
     private MeshInstance3D CloneMeshInstanceWithChildren(MeshInstance3D original)
     {
@@ -101,7 +115,8 @@ public partial class SceneBase : Node3D
                 data.Reset();
         }
 
-        tick += (float)delta;
+        // Increment the tick by the delta time multiplied by the simulation speed
+        tick += (float)delta * simulationSpeed;
 
         DisplayServer.WindowSetTitle(Math.Round(tick / 60) + "s | " + Engine.GetFramesPerSecond() + "fps");
 
@@ -129,8 +144,7 @@ public partial class SceneBase : Node3D
         {
             GD.Print("Size mismatch between movementDatas and meshInstances.");
         }
-
-        tick++;
     }
+
 
 }
