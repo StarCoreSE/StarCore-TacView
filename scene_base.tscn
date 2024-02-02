@@ -64,7 +64,7 @@ skeleton = NodePath("")
 
 [node name="Trail" parent="MeshInstance3D" instance=ExtResource("3_al7g7")]
 
-[node name="HSlider" type="HSlider" parent="."]
+[node name="HSliderSim" type="HSlider" parent="."]
 offset_left = 319.0
 offset_top = 609.0
 offset_right = 878.0
