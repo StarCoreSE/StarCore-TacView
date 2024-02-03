@@ -63,6 +63,11 @@ mesh = SubResource("ArrayMesh_lep34")
 skeleton = NodePath("")
 
 [node name="Trail" parent="MeshInstance3D" instance=ExtResource("3_al7g7")]
+visible = false
+
+[node name="Label3D" type="Label3D" parent="MeshInstance3D"]
+visible = false
+text = "AAAAAAAAAAA"
 
 [node name="HSliderSim" type="HSlider" parent="."]
 offset_left = 319.0

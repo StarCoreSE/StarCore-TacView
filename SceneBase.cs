@@ -25,7 +25,7 @@ public partial class SceneBase : Node3D
 
 
 
-        templateMeshInstance = GetNode<MeshInstance3D>("MeshInstance3D"); // Replace with the actual path
+        templateMeshInstance = GetNode<MeshInstance3D>("ShipMeshInstance3D"); // Replace with the actual path
 
         foreach (var file in DirAccess.GetFilesAt(path))
         {
@@ -101,8 +101,22 @@ public partial class SceneBase : Node3D
     }
 
 
+    private void AddGridNameLabel(MeshInstance3D meshInstance, string gridName, Vector3I gridBox, float gridSize)
+    {
+        Label3D label3D = new Label3D
+        {
+            Text = gridName,
+            FontSize = 16, // Adjust font size as needed
+            PixelSize = 5f, // Adjust for appropriate scaling in 3D space
+            Modulate = new Color(1, 1, 1, 1) // Adjust color as needed
+        };
+        label3D.Translate(new Vector3(0, gridBox.Y * gridSize + 2.0f, 0)); // Adjust position relative to the grid
+        label3D.LookAt(GetViewport().GetCamera3D().GlobalTransform.Origin, Vector3.Up); // Optional: Make the label always face the camera
+        label3D.DoubleSided = true; // Make text visible from both sides
 
-
+        // Add the Label3D as a child of the meshInstance or as a sibling, depending on your scene structure
+        meshInstance.AddChild(label3D);
+    }
 
     // Called every frame. 'delta' is the elapsed time since the previous frame.
     public override void _Process(double delta)
