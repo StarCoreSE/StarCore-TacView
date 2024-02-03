@@ -57,15 +57,15 @@ environment = SubResource("Environment_hm6sd")
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.996525, -0.0545514, 0.0629392, -0.0185652, 0.882135, 0.47063, -0.0811944, 0.467827, -0.880083, 0, 0, 0)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+[node name="ShipMeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.576, 0, 0, 0, 0.576, 0, 0, 0, 1, 0, 0, 0)
 mesh = SubResource("ArrayMesh_lep34")
 skeleton = NodePath("")
 
-[node name="Trail" parent="MeshInstance3D" instance=ExtResource("3_al7g7")]
+[node name="Trail" parent="ShipMeshInstance3D" instance=ExtResource("3_al7g7")]
 visible = false
 
-[node name="Label3D" type="Label3D" parent="MeshInstance3D"]
+[node name="Label3D" type="Label3D" parent="ShipMeshInstance3D"]
 visible = false
 text = "AAAAAAAAAAA"
 
