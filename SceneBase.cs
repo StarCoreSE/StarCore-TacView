@@ -30,34 +30,33 @@ public partial class SceneBase : Node3D
         foreach (var file in DirAccess.GetFilesAt(path))
         {
             string fullPath = System.IO.Path.Combine(path, file);
-            var gridData = new GridMovementData(fullPath);
+            var gridData = new GridMovementData(fullPath); // Make sure GridMovementData is correctly implemented
             movementDatas.Add(gridData);
 
             // Create a new MeshInstance3D for each gridData and clone its children
             var newMeshInstance = CloneMeshInstanceWithChildren(templateMeshInstance);
-            AddChild(newMeshInstance); // Add it as a child of the current node
+            AddChild(newMeshInstance);
 
             // Set the scale based on grid data
             newMeshInstance.Scale = ((Vector3)gridData.GridBox) * gridData.GridSize;
 
-            // Create a new ShaderMaterial and set its albedo color based on your conditions
-            var material = new ShaderMaterial();
+            // Create a new StandardMaterial3D and set its albedo color
+            var material = new StandardMaterial3D();
 
-            // Check if the team name contains "RED" and set the color accordingly
+            // Adjust colors according to your conditions
             if (gridData.Faction.Contains("RED"))
             {
-                material.SetShaderParameter("albedo_color", new Color(1.0f, 0.0f, 0.0f)); // Red color
+                material.AlbedoColor = new Color(1f, 0f, 0f); // Use normalized RGB values
             }
-            // Check if the team name contains "BLUE" and set the color accordingly
             else if (gridData.Faction.Contains("BLU"))
             {
-                material.SetShaderParameter("albedo_color", new Color(0.0f, 0.0f, 1.0f)); // Blue color
+                material.AlbedoColor = new Color(0f, 0f, 1f);
             }
 
-            // Assign the ShaderMaterial to the new MeshInstance
+            // Assign the StandardMaterial3D to the new MeshInstance
             newMeshInstance.MaterialOverride = material;
 
-            meshInstances.Add(newMeshInstance); // Add the new mesh instance to the list
+            meshInstances.Add(newMeshInstance); // Assuming meshInstances is a list to keep track of instances
         }
 
         // Free the templateMeshInstance after creating all instances
