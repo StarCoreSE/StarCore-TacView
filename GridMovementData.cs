@@ -1,9 +1,7 @@
 ﻿using Godot;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace StarCoreTacView
 {
@@ -20,7 +18,7 @@ namespace StarCoreTacView
 
         public float GridSize = 2.5f;
         public Vector3I GridBox = Vector3I.Zero;
-
+        public bool IsStatic = false; // Add IsStatic property
 
         private string[][] allCells = new string[0][];
         int currentRow = 0;
@@ -49,7 +47,7 @@ namespace StarCoreTacView
             gridPosition = nextGridPosition;
             gridOrientation = nextGridOrientation;
 
-            GD.Print($"Init grid {GridName} of dims {((Vector3) GridBox) * GridSize}, owner {GridOwner}");
+            GD.Print($"Init grid {GridName} of dims {((Vector3)GridBox) * GridSize}, owner {GridOwner}");
         }
 
         public void Reset()
@@ -122,6 +120,7 @@ namespace StarCoreTacView
             Faction = row[1];
             GridName = row[2];
             GridOwner = row[3];
+            IsStatic = bool.Parse(row[4]); // Parse IsStatic value
 
             currentRow++;
         }
@@ -141,7 +140,7 @@ namespace StarCoreTacView
         private void ParseDataRow()
         {
             GD.Print((allCells.Length <= currentRow) + " | " + (allCells.Length - currentRow));
-            if (IsDone || allCells.Length-1 <= currentRow)
+            if (IsDone || allCells.Length - 1 <= currentRow)
             {
                 IsDone = true;
                 return;
