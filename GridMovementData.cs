@@ -106,7 +106,12 @@ namespace StarCoreTacView
                 ParseDataRow();
             else if (delta < 0)
                 return nextGridOrientation;
-            return gridOrientation.Slerp(nextGridOrientation, delta);
+
+            // Normalize the quaternions before performing Slerp
+            Quaternion normalizedGridOrientation = gridOrientation.Normalized();
+            Quaternion normalizedNextGridOrientation = nextGridOrientation.Normalized();
+
+            return normalizedGridOrientation.Slerp(normalizedNextGridOrientation, delta);
         }
 
         private void ParseHeaderRow()
