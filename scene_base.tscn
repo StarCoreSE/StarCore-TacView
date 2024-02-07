@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://dvpxcs6jbe1k8"]
+[gd_scene load_steps=11 format=3 uid="uid://dvpxcs6jbe1k8"]
 
 [ext_resource type="Script" path="res://SceneBase.cs" id="1_fb6uy"]
 [ext_resource type="Script" path="res://free_look_camera.gd" id="2_nobrj"]
@@ -43,6 +43,8 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_w1qgq")
 
+[sub_resource type="BoxMesh" id="BoxMesh_hgf6f"]
+
 [node name="SceneBase" type="Node3D"]
 script = ExtResource("1_fb6uy")
 
@@ -76,3 +78,6 @@ offset_right = 878.0
 offset_bottom = 625.0
 max_value = 300.0
 value = 60.0
+
+[node name="StaticMeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_hgf6f")

@@ -1,3 +1,4 @@
+MeshInstance3D
 Label3D
 Label
 HSlider
@@ -9,5 +10,4 @@ CPUParticles2D
 DirectionalLight3D
 WorldEnvironment
 Camera3D
-MeshInstance3D
 Node
