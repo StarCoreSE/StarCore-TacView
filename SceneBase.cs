@@ -19,7 +19,7 @@ public partial class SceneBase : Node3D
     {
 
         // Connect the HSliderSim's value_changed signal
-        var hSliderSim = GetNode<HSlider>("HSliderSim"); // Adjust the path to your HSliderSim node if necessary
+        var hSliderSim = GetNode<HSlider>("Control/HSliderSim"); // Adjust the path to your HSliderSim node if necessary
         var callable = new Callable(this, nameof(OnSliderValueChanged));
         hSliderSim.Connect("value_changed", callable);
 

@@ -1,5 +1,10 @@
-GPUParticles3D
 MeshInstance3D
+GridMap
+Control
+BoxContainer
+MarginContainer
+Container
+GPUParticles3D
 Label3D
 Label
 HSlider

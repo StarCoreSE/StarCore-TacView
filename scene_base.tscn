@@ -1,9 +1,7 @@
-[gd_scene load_steps=18 format=3 uid="uid://dvpxcs6jbe1k8"]
+[gd_scene load_steps=17 format=3 uid="uid://dvpxcs6jbe1k8"]
 
 [ext_resource type="Script" path="res://SceneBase.cs" id="1_fb6uy"]
 [ext_resource type="Script" path="res://free_look_camera.gd" id="2_nobrj"]
-[ext_resource type="PackedScene" uid="uid://b0dkbjturh41e" path="res://trail.tscn" id="3_al7g7"]
-[ext_resource type="Material" uid="uid://cvs0pirgmfs3e" path="res://redmaterial.tres" id="4_0gnmw"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_2msrx"]
 
@@ -65,10 +63,11 @@ scale_curve = SubResource("CurveTexture_ogdyi")
 color_ramp = SubResource("GradientTexture1D_r7uny")
 
 [sub_resource type="QuadMesh" id="QuadMesh_jug6l"]
-material = ExtResource("4_0gnmw")
 size = Vector2(50, 50)
 
 [sub_resource type="BoxMesh" id="BoxMesh_hgf6f"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_b7tjb"]
 
 [node name="SceneBase" type="Node3D"]
 script = ExtResource("1_fb6uy")
@@ -89,9 +88,6 @@ transform = Transform3D(0.576, 0, 0, 0, 0.576, 0, 0, 0, 1, 0, 0, 0)
 mesh = SubResource("ArrayMesh_lep34")
 skeleton = NodePath("")
 
-[node name="Trail" parent="ShipMeshInstance3D" instance=ExtResource("3_al7g7")]
-visible = false
-
 [node name="Label3D" type="Label3D" parent="ShipMeshInstance3D"]
 visible = false
 text = "AAAAAAAAAAA"
@@ -105,13 +101,30 @@ transform_align = 3
 process_material = SubResource("ParticleProcessMaterial_l3m15")
 draw_pass_1 = SubResource("QuadMesh_jug6l")
 
-[node name="HSliderSim" type="HSlider" parent="."]
-offset_left = 319.0
-offset_top = 609.0
-offset_right = 878.0
-offset_bottom = 625.0
+[node name="StaticMeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_hgf6f")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HSliderSim" type="HSlider" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 418.0
+offset_top = 455.0
+offset_right = -391.0
+grow_horizontal = 2
+grow_vertical = 2
 max_value = 300.0
 value = 60.0
 
-[node name="StaticMeshInstance3D" type="MeshInstance3D" parent="."]
-mesh = SubResource("BoxMesh_hgf6f")
+[node name="GridMeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(10000, 0, 0, 0, 10000, 0, 0, 0, 10000, 0, 0, 0)
+mesh = SubResource("PlaneMesh_b7tjb")
