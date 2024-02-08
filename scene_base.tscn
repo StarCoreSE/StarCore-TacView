@@ -1,8 +1,9 @@
-[gd_scene load_steps=11 format=3 uid="uid://dvpxcs6jbe1k8"]
+[gd_scene load_steps=18 format=3 uid="uid://dvpxcs6jbe1k8"]
 
 [ext_resource type="Script" path="res://SceneBase.cs" id="1_fb6uy"]
 [ext_resource type="Script" path="res://free_look_camera.gd" id="2_nobrj"]
 [ext_resource type="PackedScene" uid="uid://b0dkbjturh41e" path="res://trail.tscn" id="3_al7g7"]
+[ext_resource type="Material" uid="uid://cvs0pirgmfs3e" path="res://redmaterial.tres" id="4_0gnmw"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_2msrx"]
 
@@ -43,6 +44,30 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_w1qgq")
 
+[sub_resource type="Gradient" id="Gradient_biqvb"]
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_r7uny"]
+gradient = SubResource("Gradient_biqvb")
+
+[sub_resource type="Curve" id="Curve_60sgt"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_ogdyi"]
+curve = SubResource("Curve_60sgt")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_l3m15"]
+spread = 0.0
+gravity = Vector3(0, 0, 0)
+initial_velocity_min = 0.1
+initial_velocity_max = 0.1
+scale_curve = SubResource("CurveTexture_ogdyi")
+color_ramp = SubResource("GradientTexture1D_r7uny")
+
+[sub_resource type="QuadMesh" id="QuadMesh_jug6l"]
+material = ExtResource("4_0gnmw")
+size = Vector2(50, 50)
+
 [sub_resource type="BoxMesh" id="BoxMesh_hgf6f"]
 
 [node name="SceneBase" type="Node3D"]
@@ -70,6 +95,15 @@ visible = false
 [node name="Label3D" type="Label3D" parent="ShipMeshInstance3D"]
 visible = false
 text = "AAAAAAAAAAA"
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="ShipMeshInstance3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.579344, 0, -0.266876)
+amount = 60
+fixed_fps = 0
+visibility_aabb = AABB(-40, -40, -40, 80, 80, 80)
+transform_align = 3
+process_material = SubResource("ParticleProcessMaterial_l3m15")
+draw_pass_1 = SubResource("QuadMesh_jug6l")
 
 [node name="HSliderSim" type="HSlider" parent="."]
 offset_left = 319.0

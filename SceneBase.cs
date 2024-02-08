@@ -6,20 +6,24 @@ using System.Linq; // Include this for LINQ extension methods like Min
 
 public partial class SceneBase : Node3D
 {
-    const string path = "C:\\Users\\User\\AppData\\Roaming\\SpaceEngineers\\Saves\\76561198071098415\\SCTacView\\Storage\\SCCoordinateOutput_ScCoordWriter\\";
+    const string path = "C:\\Users\\User\\AppData\\Roaming\\SpaceEngineers\\Saves\\76561198071098415\\SCTacView\\Storage\\SCCoordinateOutput_ScCoordWriter";
     List<GridMovementData> movementDatas = new List<GridMovementData>();
+    MeshInstance3D meshInstance;
     MeshInstance3D templateMeshInstance;
     MeshInstance3D templateStaticMeshInstance; // Declare templateStaticMeshInstance
-    List<Node3D> meshInstances = new List<Node3D>();
+    List<MeshInstance3D> meshInstances = new List<MeshInstance3D>();
     float tick;
     private float simulationSpeed = 60f; // Default simulation speed
 
     public override void _Ready()
     {
+
         // Connect the HSliderSim's value_changed signal
         var hSliderSim = GetNode<HSlider>("HSliderSim"); // Adjust the path to your HSliderSim node if necessary
         var callable = new Callable(this, nameof(OnSliderValueChanged));
         hSliderSim.Connect("value_changed", callable);
+
+
 
         templateMeshInstance = GetNode<MeshInstance3D>("ShipMeshInstance3D"); // Replace with the actual path
         templateStaticMeshInstance = GetNode<MeshInstance3D>("StaticMeshInstance3D"); // Replace with the actual path
@@ -30,18 +34,19 @@ public partial class SceneBase : Node3D
             var gridData = new GridMovementData(fullPath); // Make sure GridMovementData is correctly implemented
             movementDatas.Add(gridData);
 
-            // Create a new MeshInstance3D or StaticMeshInstance3D based on whether the grid is static or dynamic
-            Node3D newMeshInstance;
+            // Create a new MeshInstance3D for each gridData and clone its children
+            MeshInstance3D newMeshInstance;
+
             if (gridData.IsStatic)
             {
-                newMeshInstance = new MeshInstance3D();
-                ((MeshInstance3D)newMeshInstance).Mesh = templateStaticMeshInstance.Mesh; // Assign template mesh to StaticMeshInstance3D
+                newMeshInstance = (MeshInstance3D)templateStaticMeshInstance.Duplicate();
             }
             else
             {
-                newMeshInstance = new MeshInstance3D();
-                ((MeshInstance3D)newMeshInstance).Mesh = templateMeshInstance.Mesh; // Assign template mesh to MeshInstance3D
+                newMeshInstance = (MeshInstance3D)templateMeshInstance.Duplicate();
             }
+
+            AddChild(newMeshInstance);
 
             // Set the scale based on grid data
             newMeshInstance.Scale = ((Vector3)gridData.GridBox) * gridData.GridSize;
@@ -60,18 +65,14 @@ public partial class SceneBase : Node3D
             }
 
             // Assign the StandardMaterial3D to the new MeshInstance
-            if (newMeshInstance is MeshInstance3D meshInstance3D) // Check if newMeshInstance is MeshInstance3D
-            {
-                meshInstance3D.MaterialOverride = material; // Assign material only if newMeshInstance is MeshInstance3D
-            }
+            newMeshInstance.MaterialOverride = material;
 
-            // Add the new MeshInstance to meshInstances list
-            AddChild(newMeshInstance);
-            meshInstances.Add(newMeshInstance);
+            meshInstances.Add(newMeshInstance); // Assuming meshInstances is a list to keep track of instances
         }
 
         // Free the templateMeshInstance after creating all instances
         templateMeshInstance.QueueFree();
+        templateStaticMeshInstance.QueueFree();
 
         // Set the tick to the earliest across all files
         if (movementDatas.Any())
@@ -116,10 +117,7 @@ public partial class SceneBase : Node3D
                 if (meshInstance != null) // Check if the mesh instance exists
                 {
                     meshInstance.GlobalPosition = gridData.GetPosition(tick);
-                    if (meshInstance is MeshInstance3D meshInstance3D) // Check if meshInstance is MeshInstance3D
-                    {
-                        meshInstance3D.Quaternion = gridData.GetRotation(tick); // Set rotation only if meshInstance is MeshInstance3D
-                    }
+                    meshInstance.Quaternion = gridData.GetRotation(tick);
                 }
                 else
                 {

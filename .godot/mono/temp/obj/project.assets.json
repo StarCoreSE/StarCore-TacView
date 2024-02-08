@@ -93,11 +93,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "Y:\\MODDING ASSETS\\MISC GIT REPOS\\STARCORE-TACVIEW\\StarCore TacView.csproj",
+      "projectUniqueName": "Y:\\Modding Assets\\Misc Git Repos\\StarCore-TacView\\StarCore TacView.csproj",
       "projectName": "StarCore TacView",
-      "projectPath": "Y:\\MODDING ASSETS\\MISC GIT REPOS\\STARCORE-TACVIEW\\StarCore TacView.csproj",
+      "projectPath": "Y:\\Modding Assets\\Misc Git Repos\\StarCore-TacView\\StarCore TacView.csproj",
       "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-      "outputPath": "Y:\\MODDING ASSETS\\MISC GIT REPOS\\STARCORE-TACVIEW\\.godot\\mono\\temp\\obj\\",
+      "outputPath": "Y:\\Modding Assets\\Misc Git Repos\\StarCore-TacView\\.godot\\mono\\temp\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",

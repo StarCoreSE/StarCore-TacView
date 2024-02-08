@@ -1,8 +1,8 @@
+GPUParticles3D
 MeshInstance3D
 Label3D
 Label
 HSlider
-GPUParticles3D
 CollisionShape3D
 RigidBody3D
 CPUParticles3D
