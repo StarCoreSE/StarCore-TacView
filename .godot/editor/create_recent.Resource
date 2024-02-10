@@ -1,3 +1,4 @@
 ShaderMaterial
+ParticleProcessMaterial
 VisualShader
 Shader
