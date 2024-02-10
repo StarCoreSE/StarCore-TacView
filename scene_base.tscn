@@ -105,8 +105,9 @@ visible = false
 text = "AAAAAAAAAAA"
 
 [node name="GPUParticles3D" type="GPUParticles3D" parent="ShipMeshInstance3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.579344, 0, -0.266876)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.6)
 amount = 60
+lifetime = 10.0
 fixed_fps = 0
 visibility_aabb = AABB(-40, -40, -40, 80, 80, 80)
 transform_align = 3
