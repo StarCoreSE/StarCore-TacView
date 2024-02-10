@@ -169,4 +169,13 @@ namespace StarCoreTacView
             currentRow++;
         }
     }
+
+    public static class Extensions
+    {
+        // Extension method for linear interpolation between two Vector3 points
+        public static Vector3 Lerp(this Vector3 a, Vector3 b, float t)
+        {
+            return a + (b - a) * t;
+        }
+    }
 }

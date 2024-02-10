@@ -2,7 +2,7 @@ using Godot;
 using StarCoreTacView;
 using System;
 using System.Collections.Generic;
-using System.Linq; // Include this for LINQ extension methods like Min
+using System.Linq;
 
 public partial class SceneBase : Node3D
 {
@@ -17,13 +17,10 @@ public partial class SceneBase : Node3D
 
     public override void _Ready()
     {
-
         // Connect the HSliderSim's value_changed signal
         var hSliderSim = GetNode<HSlider>("HSliderSim"); // Adjust the path to your HSliderSim node if necessary
         var callable = new Callable(this, nameof(OnSliderValueChanged));
         hSliderSim.Connect("value_changed", callable);
-
-
 
         templateMeshInstance = GetNode<MeshInstance3D>("ShipMeshInstance3D"); // Replace with the actual path
         templateStaticMeshInstance = GetNode<MeshInstance3D>("StaticMeshInstance3D"); // Replace with the actual path
@@ -66,6 +63,9 @@ public partial class SceneBase : Node3D
 
             // Assign the StandardMaterial3D to the new MeshInstance
             newMeshInstance.MaterialOverride = material;
+
+            // Apply color to the particle material
+            ApplyColorToParticles(newMeshInstance, gridData.Faction);
 
             meshInstances.Add(newMeshInstance); // Assuming meshInstances is a list to keep track of instances
         }
@@ -128,6 +128,30 @@ public partial class SceneBase : Node3D
         else
         {
             GD.Print("Size mismatch between movementDatas and meshInstances.");
+        }
+    }
+
+    private void ApplyColorToParticles(Node node, string faction)
+    {
+        // Recursively search for GPUParticles3D nodes and apply color to their materials
+        if (node is GpuParticles3D particles)
+        {
+            var particleMaterial = (ParticleProcessMaterial)particles.ProcessMaterial;
+
+            // Adjust colors according to your conditions
+            if (faction.Contains("RED"))
+            {
+                particleMaterial.Color = new Color(1f, 0f, 0f); // Red color
+            }
+            else if (faction.Contains("BLU"))
+            {
+                particleMaterial.Color = new Color(0f, 0f, 1f); // Blue color
+            }
+        }
+
+        foreach (Node child in node.GetChildren())
+        {
+            ApplyColorToParticles(child, faction);
         }
     }
 }
