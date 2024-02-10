@@ -1,6 +1,2 @@
 res://scene_base.tscn
 res://trail.tscn
-res://gridscript1.gd
-res://SceneBase.cs
-res://Node3Dgridscript.cs
-res://GridNode.gd
