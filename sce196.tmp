@@ -1,8 +1,8 @@
-[gd_scene load_steps=20 format=3 uid="uid://dvpxcs6jbe1k8"]
+[gd_scene load_steps=18 format=3 uid="uid://dvpxcs6jbe1k8"]
 
 [ext_resource type="Script" path="res://SceneBase.cs" id="1_fb6uy"]
 [ext_resource type="Script" path="res://free_look_camera.gd" id="2_nobrj"]
-[ext_resource type="Texture2D" uid="uid://dk0vm2gbqqat1" path="res://justatransparentmaterial.png" id="3_1e5v6"]
+[ext_resource type="Script" path="res://GridNode.gd" id="3_0jjv4"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_2msrx"]
 
@@ -10,7 +10,7 @@
 sky_material = SubResource("ProceduralSkyMaterial_2msrx")
 
 [sub_resource type="Environment" id="Environment_hm6sd"]
-background_mode = 1
+background_mode = 2
 sky = SubResource("Sky_11n4s")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pd4d1"]
@@ -70,15 +70,6 @@ size = Vector2(50, 50)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_b7tjb"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fuo4x"]
-transparency = 1
-albedo_texture = ExtResource("3_1e5v6")
-uv1_scale = Vector3(1000, 1000, 1000)
-
-[sub_resource type="BoxMesh" id="BoxMesh_8wndx"]
-material = SubResource("StandardMaterial3D_fuo4x")
-size = Vector3(100000, 0.01, 100000)
-
 [node name="SceneBase" type="Node3D"]
 script = ExtResource("1_fb6uy")
 
@@ -134,5 +125,7 @@ grow_vertical = 0
 max_value = 300.0
 value = 60.0
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-mesh = SubResource("BoxMesh_8wndx")
+[node name="GridNode" type="Node3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="GridNode"]
+script = ExtResource("3_0jjv4")
