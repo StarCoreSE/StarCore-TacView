@@ -1,6 +1,2 @@
 res://scene_base.tscn
-res://redmaterial.tres
 res://trail.tscn
-res://SceneBase.cs
-res://gridshadermat.tres
-res://GridMeshInstance3D.gd

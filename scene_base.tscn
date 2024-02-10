@@ -104,27 +104,22 @@ draw_pass_1 = SubResource("QuadMesh_jug6l")
 [node name="StaticMeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = SubResource("BoxMesh_hgf6f")
 
-[node name="Control" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="HSliderSim" type="HSlider" parent="Control"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 418.0
-offset_top = 455.0
-offset_right = -391.0
-grow_horizontal = 2
-grow_vertical = 2
-max_value = 300.0
-value = 60.0
-
 [node name="GridMeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(10000, 0, 0, 0, 10000, 0, 0, 0, 10000, 0, 0, 0)
+visible = false
 mesh = SubResource("PlaneMesh_b7tjb")
+
+[node name="HSliderSim" type="HSlider" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -232.0
+offset_top = -92.0
+offset_right = 232.0
+offset_bottom = -6.0
+grow_horizontal = 2
+grow_vertical = 0
+max_value = 300.0
+value = 60.0
