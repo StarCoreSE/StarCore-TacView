@@ -69,12 +69,18 @@ namespace StarCoreTacView
                     MeshInstance.MaterialOverride = MaterialBlueFaded;
                 }
 
-                label.Modulate *= new Color(1, 1, 1, 0.25f);
-                label.OutlineModulate *= new Color(1, 1, 1, 0.25f);
+                if (label != null)
+                {
+                    label.Modulate *= new Color(1, 1, 1, 0.25f);
+                    label.OutlineModulate *= new Color(1, 1, 1, 0.25f);
+                }
 
                 didMarkDead = true;
 
-                TrailParticles.Emitting = false;
+                if (TrailParticles != null)
+                {
+                    TrailParticles.Emitting = false;
+                }
             }
         }
 
@@ -124,6 +130,36 @@ namespace StarCoreTacView
 
             if (label != null)
                 label.Text = gridData.GridName + "\n" + gridData.GridOwner;
+        }
+
+        public void Reset()
+        {
+            GridData.Reset();
+
+            if (didMarkDead)
+            {
+                if (GridData.Faction.Contains("RED"))
+                {
+                    MeshInstance.MaterialOverride = MaterialRed;
+                }
+                else if (GridData.Faction.Contains("BLU"))
+                {
+                    MeshInstance.MaterialOverride = MaterialBlue;
+                }
+
+                if (label != null)
+                {
+                    label.Modulate *= new Color(1, 1, 1, 4f);
+                    label.OutlineModulate *= new Color(1, 1, 1, 4f);
+                }
+
+                didMarkDead = false;
+
+                if (TrailParticles != null)
+                {
+                    TrailParticles.Emitting = true;
+                }
+            }
         }
 
         private static void ApplyColorToParticles(Node node, string faction)

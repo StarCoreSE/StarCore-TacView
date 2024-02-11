@@ -33,6 +33,17 @@ namespace StarCoreTacView
 
         public float LinearVelocity => SceneBase.I.simulationSpeed * (nextGridPosition - gridPosition).Length() / (nextTick - currentTick);
 
+        public void ForceTick(float tick)
+        {
+            if (currentTick > tick)
+                Reset();
+
+            while (currentTick < tick && !IsDone)
+            {
+                ParseDataRow();
+            }
+        }
+
         public GridMovementData(string filePath)
         {
             FileAccess Access = FileAccess.Open(filePath, FileAccess.ModeFlags.Read);

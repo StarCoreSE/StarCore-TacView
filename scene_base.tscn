@@ -122,23 +122,52 @@ draw_pass_1 = SubResource("PlaneMesh_fnpqu")
 [node name="StaticMeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = SubResource("BoxMesh_hgf6f")
 
-[node name="HSliderSim" type="HSlider" parent="."]
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -232.0
-offset_top = -92.0
-offset_right = 232.0
-offset_bottom = -6.0
-grow_horizontal = 2
-grow_vertical = 0
-max_value = 300.0
-value = 60.0
-
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = SubResource("BoxMesh_8wndx")
 
 [node name="arena-prop" parent="." instance=ExtResource("4_g0jmm")]
 transform = Transform3D(100, 0, 0, 0, 100, 0, 0, 0, 100, 0, 0, 0)
+
+[node name="UI2D" type="Node2D" parent="."]
+
+[node name="SimLabel" type="Label" parent="UI2D"]
+offset_left = 94.0
+offset_top = 549.0
+offset_right = 219.0
+offset_bottom = 575.0
+text = "Current Simrate"
+
+[node name="TickLabel" type="Label" parent="UI2D"]
+offset_left = 959.0
+offset_top = 549.0
+offset_right = 1054.0
+offset_bottom = 575.0
+text = "Current Tick"
+
+[node name="TickLineEdit" type="LineEdit" parent="UI2D"]
+offset_left = 930.0
+offset_top = 580.0
+offset_right = 1080.0
+offset_bottom = 615.0
+
+[node name="SimLineEdit" type="LineEdit" parent="UI2D"]
+offset_left = 82.0
+offset_top = 580.0
+offset_right = 232.0
+offset_bottom = 615.0
+select_all_on_focus = true
+
+[node name="HSliderSim" type="HSlider" parent="UI2D"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 344.0
+offset_top = 556.0
+offset_right = 808.0
+offset_bottom = 642.0
+grow_horizontal = 2
+grow_vertical = 0
+max_value = 300.0
+value = 60.0
