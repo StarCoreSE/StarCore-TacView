@@ -1,3 +1,6 @@
+LineEdit
+Label
+Node2D
 MeshInstance3D
 GridMap
 Node3D
@@ -7,7 +10,6 @@ MarginContainer
 Container
 GPUParticles3D
 Label3D
-Label
 HSlider
 CollisionShape3D
 RigidBody3D
