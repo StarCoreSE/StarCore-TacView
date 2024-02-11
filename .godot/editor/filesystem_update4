@@ -1,4 +1,4 @@
 res://scene_base.tscn
+res://blackmaterial.tres
 res://trail.tscn
-res://noncamerafollowingtrail.tres
-res://SceneBase.cs
+res://whitematerial.tres
