@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://dvpxcs6jbe1k8"]
+[gd_scene load_steps=19 format=3 uid="uid://dvpxcs6jbe1k8"]
 
 [ext_resource type="Script" path="res://SceneBase.cs" id="1_fb6uy"]
 [ext_resource type="Script" path="res://free_look_camera.gd" id="2_nobrj"]
@@ -48,9 +48,13 @@ shadow_mesh = SubResource("ArrayMesh_w1qgq")
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_l3m15"]
 spread = 0.0
 gravity = Vector3(0, 0, 0)
-color = Color(0, 0, 0, 1)
+color = Color(0.713726, 0, 0.713726, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hmu4a"]
+vertex_color_use_as_albedo = true
 
 [sub_resource type="BoxMesh" id="BoxMesh_ainjh"]
+material = SubResource("StandardMaterial3D_hmu4a")
 size = Vector3(25, 0.1, 25)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_fnpqu"]

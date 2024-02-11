@@ -6,17 +6,24 @@ using System.Linq;
 
 public partial class SceneBase : Node3D
 {
-    const string path = "C:\\Users\\User\\AppData\\Roaming\\SpaceEngineers\\Saves\\76561198071098415\\SCTacView\\Storage\\SCCoordinateOutput_ScCoordWriter";
-    List<GridMovementData> movementDatas = new List<GridMovementData>();
+    public static SceneBase I;
+
+    //const string path = "C:\\Users\\User\\AppData\\Roaming\\SpaceEngineers\\Saves\\76561198071098415\\SCTacView\\Storage\\SCCoordinateOutput_ScCoordWriter";
+    const string path = "C:\\Users\\jnick\\Downloads\\SCCoordinateOutput_ScCoordWriter";
     MeshInstance3D meshInstance;
-    MeshInstance3D templateMeshInstance;
-    MeshInstance3D templateStaticMeshInstance; // Declare templateStaticMeshInstance
-    List<MeshInstance3D> meshInstances = new List<MeshInstance3D>();
+    public MeshInstance3D templateMeshInstance;
+    public MeshInstance3D templateStaticMeshInstance; // Declare templateStaticMeshInstance
     float tick;
+    float minTick = 0;
     private float simulationSpeed = 60f; // Default simulation speed
+
+
+    List<GridMovement> GridMovements = new List<GridMovement>();
 
     public override void _Ready()
     {
+        I = this;
+
         // Connect the HSliderSim's value_changed signal
         var hSliderSim = GetNode<HSlider>("HSliderSim"); // Adjust the path to your HSliderSim node if necessary
         var callable = new Callable(this, nameof(OnSliderValueChanged));
@@ -26,63 +33,25 @@ public partial class SceneBase : Node3D
         templateStaticMeshInstance = GetNode<MeshInstance3D>("StaticMeshInstance3D"); // Replace with the actual path
 
         foreach (var file in DirAccess.GetFilesAt(path))
-        {
-            string fullPath = System.IO.Path.Combine(path, file);
-            var gridData = new GridMovementData(fullPath); // Make sure GridMovementData is correctly implemented
-            movementDatas.Add(gridData);
-
-            // Create a new MeshInstance3D for each gridData and clone its children
-            MeshInstance3D newMeshInstance;
-
-            if (gridData.IsStatic)
-            {
-                newMeshInstance = (MeshInstance3D)templateStaticMeshInstance.Duplicate();
-            }
-            else
-            {
-                newMeshInstance = (MeshInstance3D)templateMeshInstance.Duplicate();
-            }
-
-            AddChild(newMeshInstance);
-
-            // Set the scale based on grid data
-            newMeshInstance.Scale = ((Vector3)gridData.GridBox) * gridData.GridSize;
-
-            // Create a new StandardMaterial3D and set its albedo color
-            var material = new StandardMaterial3D();
-
-            // Adjust colors according to your conditions
-            if (gridData.Faction.Contains("RED"))
-            {
-                material.AlbedoColor = new Color(1f, 0f, 0f); // Use normalized RGB values
-            }
-            else if (gridData.Faction.Contains("BLU"))
-            {
-                material.AlbedoColor = new Color(0f, 0f, 1f);
-            }
-
-            // Assign the StandardMaterial3D to the new MeshInstance
-            newMeshInstance.MaterialOverride = material;
-
-            // Apply color to the particle material
-            ApplyColorToParticles(newMeshInstance, gridData.Faction);
-
-            meshInstances.Add(newMeshInstance); // Assuming meshInstances is a list to keep track of instances
-        }
+            GridMovements.Add(new GridMovement(System.IO.Path.Combine(path, file)));
 
         // Free the templateMeshInstance after creating all instances
         templateMeshInstance.QueueFree();
         templateStaticMeshInstance.QueueFree();
 
         // Set the tick to the earliest across all files
-        if (movementDatas.Any())
-        {
-            tick = movementDatas.Min(data => data.GetFirstTickValue());
-        }
+        if (GridMovements.Any())
+            minTick = GridMovements.Min(data => data.GridData.GetFirstTickValue());
         else
-        {
             GD.Print("No movement data files found or loaded.");
-        }
+
+        tick = minTick;
+    }
+
+    protected override void Dispose(bool disposing)
+    {
+        base.Dispose(disposing);
+        I = null;
     }
 
     private void OnSliderValueChanged(float value)
@@ -95,9 +64,9 @@ public partial class SceneBase : Node3D
     {
         if (Input.IsKeyPressed(Key.R))
         {
-            tick = movementDatas.Min(data => data.GetFirstTickValue()); // Reset to the earliest tick across all files
-            foreach (var data in movementDatas)
-                data.Reset();
+            tick = minTick; // Reset to the earliest tick across all files
+            foreach (var data in GridMovements)
+                data.GridData.Reset();
         }
 
         // Increment the tick by the delta time multiplied by the simulation speed
@@ -105,53 +74,9 @@ public partial class SceneBase : Node3D
 
         DisplayServer.WindowSetTitle(Math.Round(tick / 60) + "s | " + Engine.GetFramesPerSecond() + "fps");
 
-        // Check if the sizes of movementDatas and meshInstances are the same
-        if (movementDatas.Count == meshInstances.Count)
+        foreach (var gridMovement in GridMovements)
         {
-            // Iterate through all mesh instances and update their positions and rotations
-            for (int i = 0; i < movementDatas.Count; i++)
-            {
-                var gridData = movementDatas[i];
-                var meshInstance = meshInstances[i];
-
-                if (meshInstance != null) // Check if the mesh instance exists
-                {
-                    meshInstance.GlobalPosition = gridData.GetPosition(tick);
-                    meshInstance.Quaternion = gridData.GetRotation(tick);
-                }
-                else
-                {
-                    GD.Print("MeshInstance is null or not properly initialized.");
-                }
-            }
-        }
-        else
-        {
-            GD.Print("Size mismatch between movementDatas and meshInstances.");
-        }
-    }
-
-    private void ApplyColorToParticles(Node node, string faction)
-    {
-        // Recursively search for GPUParticles3D nodes and apply color to their materials
-        if (node is GpuParticles3D particles)
-        {
-            var particleMaterial = (ParticleProcessMaterial)particles.ProcessMaterial;
-
-            // Adjust colors according to your conditions
-            if (faction.Contains("RED"))
-            {
-                particleMaterial.Color = new Color(1f, 0f, 0f); // Red color
-            }
-            else if (faction.Contains("BLU"))
-            {
-                particleMaterial.Color = new Color(0f, 0f, 1f); // Blue color
-            }
-        }
-
-        foreach (Node child in node.GetChildren())
-        {
-            ApplyColorToParticles(child, faction);
+            gridMovement.Update1(tick);
         }
     }
 }

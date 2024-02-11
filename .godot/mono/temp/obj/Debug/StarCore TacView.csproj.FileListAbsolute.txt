@@ -49,3 +49,21 @@ C:\Users\jnick\OneDrive\Documents\GoDot\StarCore-TacView\.godot\mono\temp\obj\De
 C:\Users\jnick\OneDrive\Documents\GoDot\StarCore-TacView\.godot\mono\temp\obj\Debug\StarCore TacView.pdb
 C:\Users\jnick\OneDrive\Documents\GoDot\StarCore-TacView\.godot\mono\temp\obj\Debug\StarCore TacView.genruntimeconfig.cache
 C:\Users\jnick\OneDrive\Documents\GoDot\StarCore-TacView\.godot\mono\temp\obj\Debug\ref\StarCore TacView.dll
+C:\Users\jnick\OneDrive\Documents\GitHub\StarCore-TacView\.godot\mono\temp\bin\Debug\StarCore TacView.deps.json
+C:\Users\jnick\OneDrive\Documents\GitHub\StarCore-TacView\.godot\mono\temp\bin\Debug\StarCore TacView.runtimeconfig.json
+C:\Users\jnick\OneDrive\Documents\GitHub\StarCore-TacView\.godot\mono\temp\bin\Debug\StarCore TacView.dll
+C:\Users\jnick\OneDrive\Documents\GitHub\StarCore-TacView\.godot\mono\temp\bin\Debug\StarCore TacView.pdb
+C:\Users\jnick\OneDrive\Documents\GitHub\StarCore-TacView\.godot\mono\temp\bin\Debug\GodotSharp.dll
+C:\Users\jnick\OneDrive\Documents\GitHub\StarCore-TacView\.godot\mono\temp\bin\Debug\GodotSharpEditor.dll
+C:\Users\jnick\OneDrive\Documents\GitHub\StarCore-TacView\.godot\mono\temp\obj\Debug\StarCore TacView.csproj.AssemblyReference.cache
+C:\Users\jnick\OneDrive\Documents\GitHub\StarCore-TacView\.godot\mono\temp\obj\Debug\StarCore TacView.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\jnick\OneDrive\Documents\GitHub\StarCore-TacView\.godot\mono\temp\obj\Debug\StarCore TacView.AssemblyInfoInputs.cache
+C:\Users\jnick\OneDrive\Documents\GitHub\StarCore-TacView\.godot\mono\temp\obj\Debug\StarCore TacView.AssemblyInfo.cs
+C:\Users\jnick\OneDrive\Documents\GitHub\StarCore-TacView\.godot\mono\temp\obj\Debug\StarCore TacView.csproj.CoreCompileInputs.cache
+C:\Users\jnick\OneDrive\Documents\GitHub\StarCore-TacView\.godot\mono\temp\obj\Debug\StarCore TacView.sourcelink.json
+C:\Users\jnick\OneDrive\Documents\GitHub\StarCore-TacView\.godot\mono\temp\obj\Debug\StarCore TacView.csproj.CopyComplete
+C:\Users\jnick\OneDrive\Documents\GitHub\StarCore-TacView\.godot\mono\temp\obj\Debug\StarCore TacView.dll
+C:\Users\jnick\OneDrive\Documents\GitHub\StarCore-TacView\.godot\mono\temp\obj\Debug\refint\StarCore TacView.dll
+C:\Users\jnick\OneDrive\Documents\GitHub\StarCore-TacView\.godot\mono\temp\obj\Debug\StarCore TacView.pdb
+C:\Users\jnick\OneDrive\Documents\GitHub\StarCore-TacView\.godot\mono\temp\obj\Debug\StarCore TacView.genruntimeconfig.cache
+C:\Users\jnick\OneDrive\Documents\GitHub\StarCore-TacView\.godot\mono\temp\obj\Debug\ref\StarCore TacView.dll
