@@ -9,8 +9,8 @@ public partial class SceneBase : Node3D
 {
     public static SceneBase I;
 
-    //const string path = "C:\\Users\\User\\AppData\\Roaming\\SpaceEngineers\\Saves\\76561198071098415\\SCTacView\\Storage\\SCCoordinateOutput_ScCoordWriter";
-    const string path = "C:\\Users\\jnick\\Downloads\\SCCoordinateOutput_ScCoordWriter";
+    const string path = "C:\\Users\\User\\AppData\\Roaming\\SpaceEngineers\\Saves\\76561198071098415\\SCTacView\\Storage\\SCCoordinateOutput_ScCoordWriter";
+    //const string path = "C:\\Users\\jnick\\Downloads\\SCCoordinateOutput_ScCoordWriter";
     MeshInstance3D meshInstance;
     public MeshInstance3D templateMeshInstance;
     public MeshInstance3D templateStaticMeshInstance; // Declare templateStaticMeshInstance
@@ -36,10 +36,10 @@ public partial class SceneBase : Node3D
         ui2d = GetNode("UI2D") as Node2D;
 
         simRateEdit = ui2d.GetNode("SimLineEdit") as LineEdit;
-        simRateEdit.GuiInput += (inputEvent) => { SetPaused(true); };
+        simRateEdit.GuiInput += (inputEvent) => { if(inputEvent is InputEventMouseButton) SetPaused(true); };
 
         tickEdit = ui2d.GetNode("TickLineEdit") as LineEdit;
-        tickEdit.GuiInput += (inputEvent) => { SetPaused(true); };
+        tickEdit.GuiInput += (inputEvent) => { if (inputEvent is InputEventMouseButton) SetPaused(true); };
 
         ui2d.Visible = false;
         // Connect the HSliderSim's value_changed signal

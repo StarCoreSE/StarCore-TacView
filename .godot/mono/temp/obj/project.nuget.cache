@@ -1,12 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "KsMErDPMLPbJ1pGFQEhrkZQhte6Bqmv0QHl2xG7Ehw2NB+VXKqlB6+s8nJ+94aYN5K908Wiua12r0blaXUxlwA==",
+  "dgSpecHash": "Aq/RiPeA0TQWoHcpDs0PS6Ov9W6OniGbcg+4VVrA4iL6YBqhZozBfPIrwo9HaUVwaHSv+rxxbezf2kTpPD7nrg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\jnick\\OneDrive\\Documents\\GitHub\\StarCore-TacView\\StarCore TacView.csproj",
+  "projectFilePath": "Y:\\Modding Assets\\Misc Git Repos\\StarCore-TacView\\StarCore TacView.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\jnick\\.nuget\\packages\\godot.sourcegenerators\\4.1.2\\godot.sourcegenerators.4.1.2.nupkg.sha512",
-    "C:\\Users\\jnick\\.nuget\\packages\\godotsharp\\4.1.2\\godotsharp.4.1.2.nupkg.sha512",
-    "C:\\Users\\jnick\\.nuget\\packages\\godotsharpeditor\\4.1.2\\godotsharpeditor.4.1.2.nupkg.sha512"
+    "C:\\Users\\User\\.nuget\\packages\\godot.sourcegenerators\\4.1.1\\godot.sourcegenerators.4.1.1.nupkg.sha512",
+    "C:\\Users\\User\\.nuget\\packages\\godotsharp\\4.1.1\\godotsharp.4.1.1.nupkg.sha512",
+    "C:\\Users\\User\\.nuget\\packages\\godotsharpeditor\\4.1.1\\godotsharpeditor.4.1.1.nupkg.sha512"
   ],
   "logs": []
 }

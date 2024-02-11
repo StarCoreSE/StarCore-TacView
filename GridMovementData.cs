@@ -127,13 +127,23 @@ namespace StarCoreTacView
 
         private void ParseHeaderRow()
         {
-            string[] row = allCells[currentRow];
+            try
+            {
 
-            StartTime = row[0];
-            Faction = row[1];
-            GridName = row[2];
-            GridOwner = row[3];
-            IsStatic = bool.Parse(row[4]); // Parse IsStatic value
+
+                string[] row = allCells[currentRow];
+
+                StartTime = row[0];
+                Faction = row[1];
+                GridName = row[2];
+                GridOwner = row[3];
+                IsStatic = bool.Parse(row[4]); // Parse IsStatic value
+
+            }
+            catch
+            {
+
+            }
 
             currentRow++;
         }
