@@ -31,6 +31,8 @@ namespace StarCoreTacView
         Vector3 nextGridPosition = Vector3.Zero;
         Quaternion nextGridOrientation = Quaternion.Identity;
 
+        public float LinearVelocity => SceneBase.I.simulationSpeed * (nextGridPosition - gridPosition).Length() / (nextTick - currentTick);
+
         public GridMovementData(string filePath)
         {
             FileAccess Access = FileAccess.Open(filePath, FileAccess.ModeFlags.Read);
@@ -139,7 +141,7 @@ namespace StarCoreTacView
 
         private void ParseDataRow()
         {
-            GD.Print((allCells.Length <= currentRow) + " | " + (allCells.Length - currentRow));
+            //GD.Print((allCells.Length <= currentRow) + " | " + (allCells.Length - currentRow));
             if (IsDone || allCells.Length - 1 <= currentRow)
             {
                 IsDone = true;

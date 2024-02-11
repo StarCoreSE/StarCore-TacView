@@ -94,13 +94,17 @@ mesh = SubResource("ArrayMesh_lep34")
 skeleton = NodePath("")
 
 [node name="Label3D" type="Label3D" parent="ShipMeshInstance3D"]
-visible = false
+pixel_size = 0.9
+billboard = 1
+double_sided = false
+no_depth_test = true
+render_priority = 127
 text = "AAAAAAAAAAA"
 
-[node name="GPUParticles3D" type="GPUParticles3D" parent="ShipMeshInstance3D"]
+[node name="FastParticleTrail" type="GPUParticles3D" parent="ShipMeshInstance3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.6)
 amount = 120
-lifetime = 10.0
+lifetime = 5.0
 fixed_fps = 0
 visibility_aabb = AABB(-40, -40, -40, 80, 80, 80)
 process_material = SubResource("ParticleProcessMaterial_l3m15")

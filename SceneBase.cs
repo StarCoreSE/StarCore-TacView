@@ -15,7 +15,8 @@ public partial class SceneBase : Node3D
     public MeshInstance3D templateStaticMeshInstance; // Declare templateStaticMeshInstance
     float tick;
     float minTick = 0;
-    private float simulationSpeed = 60f; // Default simulation speed
+    public float simulationSpeed = 60f; // Default simulation speed
+    private float bufferSimulationSpeed = 60f; // Default simulation speed
 
 
     List<GridMovement> GridMovements = new List<GridMovement>();
@@ -69,10 +70,23 @@ public partial class SceneBase : Node3D
                 data.GridData.Reset();
         }
 
+        if (Input.IsActionJustPressed("Pause"))
+        {
+            if (simulationSpeed == 0)
+            {
+                simulationSpeed = bufferSimulationSpeed;
+            }
+            else
+            {
+                bufferSimulationSpeed = simulationSpeed;
+                simulationSpeed = 0;
+            }
+        }
+
         // Increment the tick by the delta time multiplied by the simulation speed
         tick += (float)delta * simulationSpeed;
 
-        DisplayServer.WindowSetTitle(Math.Round(tick / 60) + "s | " + Engine.GetFramesPerSecond() + "fps");
+        DisplayServer.WindowSetTitle($"{Math.Round(tick / 60)}s | {Engine.GetFramesPerSecond()}fps | {Math.Round(simulationSpeed/60f, 2)} sim");
 
         foreach (var gridMovement in GridMovements)
         {

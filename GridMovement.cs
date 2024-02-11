@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -10,20 +11,70 @@ namespace StarCoreTacView
 {
     public class GridMovement
     {
+        private static StandardMaterial3D MaterialRed = new StandardMaterial3D()
+        {
+            AlbedoColor = new Color(1f, 0f, 0f)
+        };
+        private static StandardMaterial3D MaterialBlue = new StandardMaterial3D()
+        {
+            AlbedoColor = new Color(0f, 0f, 1f)
+        };
+        private static StandardMaterial3D MaterialRedFaded = new StandardMaterial3D()
+        {
+            AlbedoColor = new Color(0.1f, 0f, 0f)
+        };
+        private static StandardMaterial3D MaterialBlueFaded = new StandardMaterial3D()
+        {
+            AlbedoColor = new Color(0f, 0f, 0.1f)
+        };
+
         public GridMovementData GridData;
         public MeshInstance3D MeshInstance;
+        private GpuParticles3D TrailParticles = null;
+        Label3D label;
 
+        bool didMarkDead = false;
 
         public void Update1(float tick)
         {
-            if (MeshInstance != null) // Check if the mesh instance exists
+            // Check if the mesh instance exists
+            if (MeshInstance == null)
             {
-                MeshInstance.GlobalPosition = GridData.GetPosition(tick);
-                MeshInstance.Quaternion = GridData.GetRotation(tick);
+                GD.PrintErr("MeshInstance is null or not properly initialized.");
+                return;
             }
-            else
+            
+            MeshInstance.GlobalPosition = GridData.GetPosition(tick);
+            MeshInstance.Quaternion = GridData.GetRotation(tick);
+
+
+            if (TrailParticles != null)
             {
-                GD.Print("MeshInstance is null or not properly initialized.");
+                float speedScale = SceneBase.I.simulationSpeed / 60f;
+
+                TrailParticles.SpeedScale = speedScale;
+
+                //if (vel > 0)
+                //    TrailParticles.Lifetime = speedScale;
+            }
+
+            if (!didMarkDead && (!GridData.IsGridAlive || GridData.IsDone))
+            {
+                if (GridData.Faction.Contains("RED"))
+                {
+                    MeshInstance.MaterialOverride = MaterialRedFaded;
+                }
+                else if (GridData.Faction.Contains("BLU"))
+                {
+                    MeshInstance.MaterialOverride = MaterialBlueFaded;
+                }
+
+                label.Modulate *= new Color(1, 1, 1, 0.25f);
+                label.OutlineModulate *= new Color(1, 1, 1, 0.25f);
+
+                didMarkDead = true;
+
+                TrailParticles.Emitting = false;
             }
         }
 
@@ -35,46 +86,47 @@ namespace StarCoreTacView
             var gridData = new GridMovementData(fullPath); // Make sure GridMovementData is correctly implemented
             GridData = gridData;
 
-            // Create a new MeshInstance3D for each gridData and clone its children
-            MeshInstance3D newMeshInstance;
-
             if (gridData.IsStatic)
             {
-                newMeshInstance = (MeshInstance3D)SceneBase.I.templateStaticMeshInstance.Duplicate();
+                MeshInstance = (MeshInstance3D)SceneBase.I.templateStaticMeshInstance.Duplicate();
             }
             else
             {
-                newMeshInstance = (MeshInstance3D)SceneBase.I.templateMeshInstance.Duplicate();
+                MeshInstance = (MeshInstance3D)SceneBase.I.templateMeshInstance.Duplicate();
             }
 
-            SceneBase.I.AddChild(newMeshInstance);
+            SceneBase.I.AddChild(MeshInstance);
+
+            if (MeshInstance.GetChildCount() > 0)
+                label = MeshInstance.GetChild(0) as Label3D;
 
             // Set the scale based on grid data
-            newMeshInstance.Scale = ((Vector3)gridData.GridBox) * gridData.GridSize;
+            label?.SetDisableScale(true);
+            MeshInstance.Scale = ((Vector3)gridData.GridBox) * gridData.GridSize;
 
             // Create a new StandardMaterial3D and set its albedo color
-            var material = new StandardMaterial3D();
 
             // Adjust colors according to your conditions
             if (gridData.Faction.Contains("RED"))
             {
-                material.AlbedoColor = new Color(1f, 0f, 0f); // Use normalized RGB values
+                MeshInstance.MaterialOverride = MaterialRed;
             }
             else if (gridData.Faction.Contains("BLU"))
             {
-                material.AlbedoColor = new Color(0f, 0f, 1f);
+                MeshInstance.MaterialOverride = MaterialBlue;
             }
 
-            // Assign the StandardMaterial3D to the new MeshInstance
-            newMeshInstance.MaterialOverride = material;
-
             // Apply color to the particle material
-            ApplyColorToParticles(newMeshInstance, gridData.Faction);
+            ApplyColorToParticles(MeshInstance, gridData.Faction);
 
-            MeshInstance = newMeshInstance;
+            if (MeshInstance.GetChildCount() > 1)
+                TrailParticles = MeshInstance.GetChild(1) as GpuParticles3D;
+
+            if (label != null)
+                label.Text = gridData.GridName + "\n" + gridData.GridOwner;
         }
 
-        private void ApplyColorToParticles(Node node, string faction)
+        private static void ApplyColorToParticles(Node node, string faction)
         {
             // Recursively search for GPUParticles3D nodes and apply color to their materials
             if (node is GpuParticles3D particles)
